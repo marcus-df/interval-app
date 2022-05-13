@@ -1,28 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import Navicon from "../Assets/navicon.svg";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../State/store";
+import { setMenuOpen } from "../State/appSlice";
+import NavIcon from "./NavIcon";
 
 function Navigation() {
+  const menuOpen = useSelector((state: RootState) => state.appReducer.menuOpen);
   const dispatch = useDispatch();
-  const [toggle, setToggle] = useState(false);
 
-  function toggleNav() {
-    setToggle(!toggle);
+  function handleToggleNav(toggleMenuValue: boolean) {
+    dispatch(setMenuOpen(Boolean(toggleMenuValue)));
   }
 
   useEffect(() => {
-    console.log(toggle);
-  }, [toggle]);
+    console.log(menuOpen);
+  }, [menuOpen]);
 
   return (
-    <div className="nav-container">
-      <section id="main-nav">
-        <div id="navicon" onClick={() => toggleNav()}>
-          <img src={Navicon} alt="navigation icon" />
-        </div>
-      </section>
-      {toggle ? <p>toggle == true</p> : <p>toggle == false</p>}
-    </div>
+    <section id="main-nav">
+      <div id="navicon" onClick={() => handleToggleNav(!menuOpen)} className={menuOpen ? "bright" : "dark"}>
+        <NavIcon />
+      </div>
+    </section>
   );
 }
 

@@ -12,4 +12,12 @@ body {
   #navicon {
     cursor: pointer;
   }
+
+  .bright svg rect {
+    fill: #fff;
+  }
+
+  .dark svg rect {
+    fill: #222;
+  }
 }
