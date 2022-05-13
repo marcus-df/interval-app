@@ -1,11 +1,12 @@
 import Loading from "./Pages/Loading";
 import React from "react";
+import SetTimer from "./Pages/SetTimer"
 
 export function App() {
   return (
     <div>
       <Loading />
-      <h1>test</h1>
+      <SetTimer />
     </div>
   )
 }

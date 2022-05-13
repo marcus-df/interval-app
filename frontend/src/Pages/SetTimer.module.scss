@@ -1,0 +1,37 @@
+img { 
+    width: 2rem;
+    height: 2rem;
+}
+
+.startBtn {
+    width: 80%;
+    height: 3rem;
+    padding: 1rem;
+    font-size: larger;
+    font-weight: bolder;
+    margin-top: 1rem;
+}
+
+.wrapperSetTimer {
+    text-align: center;
+}
+
+.wrapInput {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapTime {
+    margin-top: 90%;
+}
+
+.minutes {
+    color: grey;
+    margin-top: 0;
+}
+
+.timeCount {
+    font-weight: bolder;
+    font-size: 60px;
+    margin: 0 2rem;
+}
