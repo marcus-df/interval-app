@@ -1,0 +1,15 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#main-nav {
+  width: 100vw;
+  box-sizing: border-box;
+  background-color: #9b9b9b;
+  padding: 0.5rem;
+
+  #navicon {
+    cursor: pointer;
+  }
+}
