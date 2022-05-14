@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../State/store";
 import { setMenuOpen } from "../State/appSlice";
@@ -11,10 +11,6 @@ function Navigation() {
   function handleToggleNav(toggleMenuValue: boolean) {
     dispatch(setMenuOpen(Boolean(toggleMenuValue)));
   }
-
-  useEffect(() => {
-    console.log(menuOpen);
-  }, [menuOpen]);
 
   return (
     <section id="main-nav">
