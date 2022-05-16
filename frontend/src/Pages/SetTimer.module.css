@@ -5,7 +5,8 @@ img {
 
 .startBtn {
   width: 80%;
-  padding: 0.5rem;
+  height: 3rem;
+  padding: 1rem;
   font-size: larger;
   font-weight: bolder;
   margin-top: 1rem;
@@ -20,10 +21,6 @@ img {
   flex-direction: column;
 }
 
-// .wrapTime {
-//   margin-top: 90%;
-// }
-
 .minutes {
   color: grey;
   margin-top: 0;
@@ -33,4 +30,4 @@ img {
   font-weight: bolder;
   font-size: 60px;
   margin: 0 2rem;
-}
+}/*# sourceMappingURL=SetTimer.module.css.map */
