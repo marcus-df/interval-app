@@ -1,15 +1,21 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface TimerState {
-  seconds: number;
-  minuets: number;
-  isRunning: boolean;
+  sec: number;
+  min: number;
+  isRun: boolean;
+  expTime: Date | null;
+  autoStart: boolean;
+  timeOut: boolean;
 }
 
 const initialState = {
-  seconds: 0,
-  minuets: 0,
-  isRunning: false,
+  sec: 0,
+  min: 0,
+  isRun: false,
+  expTime: new Date(),
+  autoStart: true,
+  timeOut: false,
 };
 
 export const timerSlice = createSlice({
@@ -18,15 +24,27 @@ export const timerSlice = createSlice({
   reducers: {
     setSeconds: (state: TimerState, action: PayloadAction<number>) => {
       //Set the number of seconds from payload
-      state.seconds = action.payload;
+      state.sec = action.payload;
     },
     setMinuets: (state: TimerState, action: PayloadAction<number>) => {
       //Set the number of minuets from payload
-      state.minuets = action.payload;
+      state.min = action.payload;
     },
     setIsRunning: (state: TimerState, action: PayloadAction<boolean>) => {
       //Set if the timer is running
-      state.isRunning = action.payload;
+      state.isRun = action.payload;
+    },
+    setExpTime: (state: TimerState, action: PayloadAction<Date | null>) => {
+      //Set the expiration time
+      state.expTime = action.payload;
+    },
+    setAutoStart: (state: TimerState, action: PayloadAction<boolean>) => {
+      //Set if the timer should autostart
+      state.autoStart = action.payload;
+    },
+    setTimeOut: (state: TimerState, action: PayloadAction<boolean>) => {
+      //Set if the time has run out
+      state.autoStart = action.payload;
     },
   },
 });
