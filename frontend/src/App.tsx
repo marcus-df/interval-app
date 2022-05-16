@@ -11,6 +11,7 @@ import PauseView from "./Pages/PauseView";
 import Navigation from "./Components/Navigation";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SetTimer from "./Pages/SetTimer";
 
 export function App() {
   return (
@@ -22,6 +23,7 @@ export function App() {
         <Route path="/timer-visual" element={<TimerVisual />} />
         <Route path="/timer-text" element={<TimerText />} />
         <Route path="/timer-circles" element={<TimerCircles />} />
+        <Route path="set-timer" element={<SetTimer/>}/>
       </Routes>
       <div className="app">
         <Navigation />
