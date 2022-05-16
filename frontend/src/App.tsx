@@ -12,7 +12,13 @@ import PauseView from "./Pages/PauseView";
 import Navigation from "./Components/Navigation";
 import Menu from "./Components/Menu";
 
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Timer from "./Components/Timer";
 
 export function App() {
   return (
@@ -24,6 +30,7 @@ export function App() {
         <Loading />
         <AlarmView />
         <PauseView />
+        <Timer />
       </div>
       <Routes>
         <Route path="/" element={<SetTimer />} />
