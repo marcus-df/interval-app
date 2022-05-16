@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Righteous&display=swap");
+* {
+  font-family: "PT Sans", sans-serif;
+  line-height: 150%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.spacing-top {
+  padding-top: 3.5rem;
+}
+
+#main-nav {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #6C757D;
+  padding: 0.5rem;
+  position: fixed;
+  z-index: 100;
+}
+#main-nav #navicon {
+  cursor: pointer;
+}
+#main-nav .bright svg rect {
+  fill: #F8F9FA;
+}
+#main-nav .dark svg rect {
+  fill: #212529;
+}
+
+.menu-field {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  background-color: #6C757D;
+  border: none;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.menu-field .inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.menu-field ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu-field a {
+  color: #F8F9FA;
+  text-decoration: none;
+}
+.menu-field a:hover {
+  text-decoration: underline;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade-out {
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 1;
+  }
+}
+.menu-field[open] {
+  -webkit-animation: fade-in 500ms forwards;
+          animation: fade-in 500ms forwards;
+  position: fixed;
+  z-index: 50;
+}/*# sourceMappingURL=App.css.map */
