@@ -1,14 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "State/store";
 
 function AnalogClock() {
+  const { sec, min, isRun, expTime, autoStart, timeOut } = useSelector(
+    (state: RootState) => state.timerReducer
+  );
+
+  let secStyle = {
+    transform: `rotateZ(${sec * 6}deg)`,
+  };
+
+  let minStyle = {
+    transform: `rotateZ(${min * 6}deg)`,
+    display: `${min == 0 ? "none" : "inherit"}`,
+  };
+
+  let clockAnimate = {
+    animation: "pulse 1000ms infinite",
+    animationPlayState: `${min == 0 && sec > 0 ? "running" : "paused"}`,
+  };
+
   return (
     <div>
-      <svg width="278" height="278" viewBox="0 0 278 278" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        style={clockAnimate}
+        width="278"
+        height="278"
+        viewBox="0 0 278 278"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <g id="clock">
           <g id="minutes" clipPath="url(#clip0_839_0)">
             <path
               d="M139.169 11.158V0.89389"
-              stroke="#222222"
+              stroke="#f44336"
               strokeWidth="2"
               strokeMiterlimit="10"
               strokeLinecap="round"
@@ -427,7 +454,7 @@ function AnalogClock() {
               strokeLinecap="round"
             />
           </g>
-          <g id="hour-handle">
+          <g id="hour-handle" style={minStyle}>
             <ellipse
               rx="7.98555"
               ry="7.9858"
@@ -442,7 +469,7 @@ function AnalogClock() {
               fill="black"
             />
           </g>
-          <g id="minute-handle">
+          <g id="minute-handle" style={secStyle}>
             <ellipse
               rx="4.98563"
               ry="4.98578"
