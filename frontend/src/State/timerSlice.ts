@@ -4,6 +4,7 @@ export interface TimerState {
   sec: number;
   min: number;
   isRun: boolean;
+  duration: number;
   expTime: Date | null;
   autoStart: boolean;
   timeOut: boolean;
@@ -15,6 +16,7 @@ const initialState = {
   sec: 0,
   min: 0,
   isRun: false,
+  duration: 0,
   expTime: null,
   autoStart: false,
   timeOut: false,
@@ -38,6 +40,10 @@ export const timerSlice = createSlice({
       //Set if the timer is running
       state.isRun = action.payload;
     },
+    setDuration: (state: TimerState, action: PayloadAction<number>) => {
+      //Set the wanted duration in minutes
+      state.duration = action.payload;
+    },
     setExpTime: (state: TimerState, action: PayloadAction<Date | null>) => {
       //Set the expiration time
       state.expTime = action.payload;
@@ -50,6 +56,14 @@ export const timerSlice = createSlice({
       //Set if the time has run out
       state.timeOut = action.payload;
     },
+    setShouldInterval: (state: TimerState, action: PayloadAction<boolean>) => {
+      //Set if the timer should interval ai "restart"
+      state.interval = action.payload;
+    },
+    setShouldBreak: (state: TimerState, action: PayloadAction<boolean>) => {
+      //Set if the timer should have a break between intervals
+      state.break = action.payload;
+    },
   },
 });
 
@@ -58,9 +72,12 @@ export const {
   setSeconds,
   setMinutes,
   setIsRunning,
+  setDuration,
   setExpTime,
   setAutoStart,
   setTimeOut,
+  setShouldInterval,
+  setShouldBreak,
 } = timerSlice.actions;
 
 export default timerSlice.reducer;
