@@ -11,6 +11,7 @@ import AlarmView from "./Pages/AlarmView";
 import PauseView from "./Pages/PauseView";
 import Navigation from "./Components/Navigation";
 import Menu from "./Components/Menu";
+import Timer from "./Components/Timer";
 
 import {
   BrowserRouter as Router,
@@ -18,7 +19,6 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Timer from "./Components/Timer";
 
 export function App() {
   return (

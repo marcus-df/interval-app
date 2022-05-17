@@ -4,15 +4,17 @@ import { useSelector } from "react-redux";
 import { RootState } from "State/store";
 
 function TimerDigital() {
-  const { sec, min, isRun, expTime, autoStart, timeOut } = useSelector((state: RootState) => state.timerReducer);
+  const { sec, min, isRun, expTime, autoStart, timeOut } = useSelector(
+    (state: RootState) => state.timerReducer
+  );
 
   return (
-    <div>
-      <h2>
+    <section className="page-container">
+      <div className="timer-digital">
         <span>{min ? min : "0"}</span> : <span>{sec ? sec : "00"}</span>
-      </h2>
+      </div>
       <AbortBtn />
-    </div>
+    </section>
   );
 }
 

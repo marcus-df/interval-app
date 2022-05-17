@@ -1,7 +1,11 @@
 import React from "react";
 
 function TimerCircles() {
-  return <div>TimerCircles</div>;
+  return (
+    <section className="page-container">
+      <div>TimerCircles</div>
+    </section>
+  );
 }
 
 export default TimerCircles;
