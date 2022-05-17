@@ -1,10 +1,14 @@
 import React from "react";
 
-function ContinueBtn(props) {
+interface Btn {
+  action: () => void;
+}
+
+function ContinueBtn(props: Btn) {
   //Deconstruct props
   const { action } = props;
   return (
-    <div classname="btn" onClick={action}>
+    <div className="btn" onClick={action}>
       No Pause, go now!
     </div>
   );
