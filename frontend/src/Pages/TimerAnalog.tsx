@@ -3,13 +3,17 @@ import AbortBtn from "../Components/AbortBtn";
 import AnalogClock from "../Components/AnalogClock";
 
 function TimerAnalog() {
+  const { sec, min, isRun, expTime, autoStart, timeOut } = useSelector(
+    (state: RootState) => state.timerReducer
+  );
+
   return (
-    <div className="timer-analog">
+    <section className="page-container">
       <article className="clock-field">
         <AnalogClock />
       </article>
       <AbortBtn />
-    </div>
+    </section>
   );
 }
 

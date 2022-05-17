@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./SetTimer.module.scss";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { RootState } from "../State/store";
 import { setExpTime } from "../State/timerSlice";
 import AbortBtn from "../Components/AbortBtn";
-import { useNavigate } from "react-router-dom";
 
 function SetTimer() {
   const timeMin = useSelector((state: RootState) => state.timerReducer.min);
@@ -37,11 +37,19 @@ function SetTimer() {
     // dispatch(setShouldBreak(shouldBreak))
   }
   return (
-    <section className={styles.wrapperSetTimer}>
+    <section className="page-container">
       <div className={styles.wrapTime}>
-        <img onClick={reduceTime} src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="" />{" "}
+        <img
+          onClick={reduceTime}
+          src="https://cdn-icons-png.flaticon.com/512/271/271220.png"
+          alt=""
+        />{" "}
         <span className={styles.timeCount}>{timer}</span>{" "}
-        <img onClick={addTime} src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="" />
+        <img
+          onClick={addTime}
+          src="https://cdn-icons-png.flaticon.com/512/271/271228.png"
+          alt=""
+        />
         <p className="minutes">minutes</p>
       </div>
 
@@ -66,10 +74,9 @@ function SetTimer() {
         </label>
       </div>
 
-      <button onClick={setTime} className={styles.startBtn}>
+      <button onClick={setTime} className="btn">
         START TIMER
       </button>
-      <AbortBtn />
     </section>
   );
 }

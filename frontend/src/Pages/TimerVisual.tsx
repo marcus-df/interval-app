@@ -1,7 +1,11 @@
 import React from "react";
 
 function TimerVisual() {
-  return <div>TimerVisual</div>;
+  return (
+    <section className="page-container">
+      <div>TimerVisual</div>
+    </section>
+  );
 }
 
 export default TimerVisual;
