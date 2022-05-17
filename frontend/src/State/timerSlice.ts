@@ -8,8 +8,8 @@ export interface TimerState {
   expTime: Date | null;
   autoStart: boolean;
   timeOut: boolean;
-  interval: boolean;
-  break: boolean;
+  shouldInterval: boolean;
+  shouldBreak: boolean;
 }
 
 const initialState = {
@@ -20,8 +20,8 @@ const initialState = {
   expTime: null,
   autoStart: false,
   timeOut: false,
-  interval: false,
-  break: false,
+  shouldInterval: false,
+  shouldBreak: false,
 };
 
 export const timerSlice = createSlice({
@@ -58,11 +58,11 @@ export const timerSlice = createSlice({
     },
     setShouldInterval: (state: TimerState, action: PayloadAction<boolean>) => {
       //Set if the timer should interval ai "restart"
-      state.interval = action.payload;
+      state.shouldInterval = action.payload;
     },
     setShouldBreak: (state: TimerState, action: PayloadAction<boolean>) => {
       //Set if the timer should have a break between intervals
-      state.break = action.payload;
+      state.shouldBreak = action.payload;
     },
   },
 });
