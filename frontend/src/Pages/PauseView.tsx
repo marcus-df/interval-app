@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setExpTime } from "../State/timerSlice";
@@ -11,13 +11,13 @@ function PauseView() {
   const navigate = useNavigate();
 
   //State variables
-  const { shouldBreak, timeOut } = useSelector(
+  const { min, sec, shouldBreak, timeOut } = useSelector(
     (state: RootState) => state.timerReducer
   );
   const { paused } = useSelector((state: RootState) => state.appReducer);
 
   //Functions
-  function handleTimeOut() {
+  function handleTimeOut(): void {
     //Check if we are paused - if not - set state to paused
     if (timeOut && !paused) {
       dispatch(setPaused(true));
@@ -30,8 +30,21 @@ function PauseView() {
     dispatch(setExpTime(pauseTime.getTime()));
   }
 
+  useEffect(() => {
+    if (timeOut) {
+      handleTimeOut();
+    }
+  }, [timeOut]);
+
   if (shouldBreak && timeOut) {
-    return <div>PauseView</div>;
+    return (
+      <div>
+        <h1>PauseView</h1>
+        <h2>
+          {min} : {sec}
+        </h2>
+      </div>
+    );
   }
   return null;
 }

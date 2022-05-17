@@ -82,9 +82,10 @@ function Timer() {
       //Set app state to no longer paused - we are moving back to the standard timer cycle
       dispatch(setPaused(false));
       //Set the new expTime
-      dispatch(setExpTime(newTime));
+      dispatch(setExpTime(newTime.getTime()));
       //Set timeout to false - we want the pause view to get removed
       dispatch(setTimeOut(false));
+      return console.log("Starting timer POST Pause!");
     }
     //Set the global state to timeout true
     dispatch(setTimeOut(true));
