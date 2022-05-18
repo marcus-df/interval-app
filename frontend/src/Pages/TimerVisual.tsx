@@ -8,9 +8,7 @@ function TimerVisual() {
   //Hooks
   const navigate = useNavigate();
   //Global state timer variables
-  const { duration, min, sec, expTime } = useSelector(
-    (state: RootState) => state.timerReducer
-  );
+  const { duration, min, sec, expTime } = useSelector((state: RootState) => state.timerReducer);
   //Local state variables
   const [progress, setProgress] = useState(0);
 
@@ -42,7 +40,7 @@ function TimerVisual() {
         position: "relative",
         height: "100vh",
         boxSizing: "border-box",
-        backgroundColor: "black",
+        backgroundColor: "#212529",
       }}
     >
       <div
