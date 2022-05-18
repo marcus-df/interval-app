@@ -23,13 +23,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.spacing-top {
-  padding-top: 3.5rem;
-}
-
 #main-nav {
   width: 100%;
-  // background-color: $color-gray;
   padding: 0.5rem;
   position: fixed;
   z-index: 50;
@@ -122,7 +117,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 100vh;
   gap: 2rem;
 }
 
@@ -130,6 +125,7 @@ body {
   background-color: $color-white;
   color: $color-grayish;
   border: $color-grayish solid 1px;
+  font-size: calc(0.75rem + 0.5vmax);
   padding: 0.5rem 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -143,15 +139,20 @@ body {
   }
 }
 
+.abort-btn {
+  position: absolute;
+  bottom: 4rem;
+}
+
 .large-num {
-  font-weight: 700;
   font-size: calc(2rem + 3.5vmax);
+  font-weight: 700;
 }
 
 .large-text {
-  text-transform: uppercase;
-  font-weight: 700;
   font-size: calc(1rem + 2.5vmax);
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .central {
@@ -164,9 +165,34 @@ body {
   display: flex;
   gap: 3rem;
   align-items: center;
+
+  .arrow {
+    width: calc(1rem + 2.5vmax);
+    height: calc(1rem + 2.5vmax);
+  }
+}
+
+.set-time-field {
+  .unit-text {
+    color: $color-gray;
+    font-size: calc(0.75rem + 0.5vmax);
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 0;
+  }
+}
+
+.settings-text {
+  font-weight: 700;
+  color: $color-darkgray;
 }
 
 .clock-field {
+  svg {
+    min-width: 80vmin;
+    min-height: 50vh;
+  }
   #hour-handle,
   #minute-handle {
     transform-origin: center;
