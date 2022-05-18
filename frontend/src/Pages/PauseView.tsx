@@ -21,7 +21,7 @@ function PauseView() {
   //Handle what happens when timeout
   function handleTimeOut(): void {
     //Check if we are paused - if not - set state to paused
-    if (timeOut && !paused) {
+    if (timeOut && !paused && shouldBreak) {
       dispatch(setPaused(true));
     }
     //Pause time variable
@@ -52,7 +52,7 @@ function PauseView() {
   }
 
   useEffect(() => {
-    if (timeOut) {
+    if (timeOut && shouldBreak) {
       handleTimeOut();
     }
   }, [timeOut]);
