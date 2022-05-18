@@ -95,7 +95,7 @@ function SetTimer() {
         </label>
       </div>
 
-      <button onClick={setTime} className="btn">
+      <button onClick={setTime} className="btn start-btn">
         START TIMER
       </button>
     </section>
