@@ -8,18 +8,19 @@ function AlarmView() {
   const { timeOut, shouldInterval } = useSelector((state: RootState) => state.timerReducer);
   useEffect(() => {
     if (timeOut && !shouldInterval) {
-      alert("alarm is going")
 
     }
   }, [timeOut, shouldInterval])
 
   if (timeOut && !shouldInterval) {
     return (
-      < div className="loading-field page-container" >
+
+      <div className=" page-container alarm-field">
         <img src={alarmicon} alt="" />
         <p className="timesUp">Times up!</p>
         <SetNewTimerBtn />
       </div >
+
     )
   } return null
 }
