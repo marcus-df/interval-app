@@ -4,10 +4,16 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import SetNewTimerBtn from "../Components/SetNewTimerBtn";
 import alarmicon from "../Assets/alarmicon.svg";
+import alarmSFX from "../Assets/alarm.wav";
 function AlarmView() {
-  const { timeOut, shouldInterval } = useSelector((state: RootState) => state.timerReducer);
+  const sound = new Audio(alarmSFX);
+  const { timeOut, shouldInterval } = useSelector(
+    (state: RootState) => state.timerReducer
+  );
   useEffect(() => {
     if (timeOut && !shouldInterval) {
+      //Play the alarm sound effect
+      sound.play();
     }
   }, [timeOut, shouldInterval]);
 

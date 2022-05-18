@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setExpTime, setTimeOut } from "../State/timerSlice";
@@ -6,6 +6,7 @@ import { setPaused } from "../State/appSlice";
 import { RootState } from "../State/store";
 import ContinueBtn from "../Components/ContinueBtn";
 import pauseIcon from "../Assets/pause.svg";
+import music from "../Assets/too_late.mp3";
 
 function PauseView() {
   //Hooks
@@ -18,12 +19,16 @@ function PauseView() {
   );
   const { paused } = useSelector((state: RootState) => state.appReducer);
 
+  //Local sound state variable
+  const [sound, setSound] = useState(new Audio(music));
+
   //Functions
   //Handle what happens when timeout
   function handleTimeOut(): void {
     //Check if we are paused - if not - set state to paused
     if (timeOut && !paused && shouldBreak) {
       dispatch(setPaused(true));
+      sound.play();
     }
     //Pause time variable
     let pauseTime = new Date();
@@ -33,6 +38,7 @@ function PauseView() {
     dispatch(setExpTime(pauseTime.getTime()));
   }
 
+  //Handle what happens on press continue
   function handleContinue(): void {
     //Set the expTime to null in order to stop the timer
     dispatch(setExpTime(null));
@@ -52,9 +58,20 @@ function PauseView() {
     }, 100);
   }
 
+  //Handle what happens on timeout if app is set to use breaks
   useEffect(() => {
     if (timeOut && shouldBreak) {
       handleTimeOut();
+    }
+  }, [timeOut]);
+
+  //Handle pause over - turn off music
+  useEffect(() => {
+    if (!timeOut) {
+      //Stop the sound
+      console.log("Pausing sound");
+      sound.pause();
+      sound.currentTime = 0;
     }
   }, [timeOut]);
 
