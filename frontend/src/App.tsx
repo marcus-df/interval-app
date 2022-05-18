@@ -13,12 +13,7 @@ import Navigation from "./Components/Navigation";
 import Menu from "./Components/Menu";
 import Timer from "./Components/Timer";
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 export function App() {
   return (
@@ -26,7 +21,6 @@ export function App() {
       <div className="app">
         <Navigation />
         <Menu />
-        <div className="spacing-top" />
         <Loading />
         <AlarmView />
         <PauseView />

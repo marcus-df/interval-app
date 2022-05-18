@@ -55,7 +55,7 @@ function SetTimer() {
   }
   return (
     <section className="page-container">
-      <div>
+      <div className="set-time-field">
         <div className="time-controls">
           <img
             onClick={decreaseTime}
@@ -71,27 +71,27 @@ function SetTimer() {
             alt=""
           />
         </div>
-        <p className="minutes">minutes</p>
+        <p className="unit-text">minutes</p>
       </div>
 
-      <div className={styles.wrapInput}>
-        <label htmlFor="">
+      <div>
+        <label>
           <input
             onChange={(e) => {
               setInterval(e.target.checked);
             }}
             type="checkbox"
           />
-          intervals
+          <span className="settings-text">Intervals</span>
         </label>
-        <label htmlFor="">
+        <label>
           <input
             onChange={(e) => {
               setWantsBreak(e.target.checked);
             }}
             type="checkbox"
           />
-          5 min break / interval{" "}
+          <span className="settings-text">5 min break / interval</span>
         </label>
       </div>
 
