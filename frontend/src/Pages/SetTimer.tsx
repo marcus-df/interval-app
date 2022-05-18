@@ -3,12 +3,7 @@ import styles from "./SetTimer.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../State/store";
-import {
-  setDuration,
-  setExpTime,
-  setShouldBreak,
-  setShouldInterval,
-} from "../State/timerSlice";
+import { setDuration, setExpTime, setShouldBreak, setShouldInterval } from "../State/timerSlice";
 import AbortBtn from "../Components/AbortBtn";
 
 function SetTimer() {
@@ -26,11 +21,11 @@ function SetTimer() {
     }
   });
 
-  function addTime() {
+  function increaseTime() {
     setTimer(timer + 1);
   }
 
-  function reduceTime() {
+  function decreaseTime() {
     if (timer > 0) {
       setTimer(timer - 1);
     }
@@ -60,18 +55,22 @@ function SetTimer() {
   }
   return (
     <section className="page-container">
-      <div className={styles.wrapTime}>
-        <img
-          onClick={reduceTime}
-          src="https://cdn-icons-png.flaticon.com/512/271/271220.png"
-          alt=""
-        />{" "}
-        <span className={styles.timeCount}>{timer}</span>{" "}
-        <img
-          onClick={addTime}
-          src="https://cdn-icons-png.flaticon.com/512/271/271228.png"
-          alt=""
-        />
+      <div>
+        <div className="time-controls">
+          <img
+            onClick={decreaseTime}
+            className="arrow"
+            src="https://cdn-icons-png.flaticon.com/512/271/271220.png"
+            alt=""
+          />{" "}
+          <span className="large-num">{timer}</span>{" "}
+          <img
+            onClick={increaseTime}
+            className="arrow"
+            src="https://cdn-icons-png.flaticon.com/512/271/271228.png"
+            alt=""
+          />
+        </div>
         <p className="minutes">minutes</p>
       </div>
 
