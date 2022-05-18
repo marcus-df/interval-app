@@ -5,6 +5,7 @@ import { setExpTime, setTimeOut } from "../State/timerSlice";
 import { setPaused } from "../State/appSlice";
 import { RootState } from "../State/store";
 import ContinueBtn from "../Components/ContinueBtn";
+import pauseIcon from "../Assets/pause.svg";
 
 function PauseView() {
   //Hooks
@@ -59,8 +60,9 @@ function PauseView() {
 
   if (shouldBreak && timeOut) {
     return (
-      <div>
-        <h1>PauseView</h1>
+      <div className="pause-field page-container">
+        <img src={pauseIcon} alt="Pause icon" />
+        <h1>Pause & Breath</h1>
         <h2>
           {min} : {sec}
         </h2>

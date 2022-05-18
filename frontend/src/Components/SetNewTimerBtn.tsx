@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from "react-redux"
-import { setMinutes } from "../State/timerSlice"
+import { setTimeOut, setExpTime, setIsRunning, setMinutes } from "../State/timerSlice"
 import { useNavigate } from 'react-router-dom'
 
 function SetNewTimerBtn() {
@@ -11,6 +11,9 @@ function SetNewTimerBtn() {
 
 
   function newTimer() {
+    dispatch(setTimeOut(false));
+    dispatch(setExpTime(null));
+    dispatch(setIsRunning(false));
     dispatch(setMinutes(0))
     navigate("/set-timer")
   }
