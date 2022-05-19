@@ -1,0 +1,27 @@
+img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.startBtn {
+  width: 80%;
+  padding: 0.5rem;
+  font-size: larger;
+  font-weight: bolder;
+  margin-top: 1rem;
+}
+
+.wrapperSetTimer {
+  text-align: center;
+}
+
+.wrapInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeCount {
+  font-weight: bolder;
+  font-size: 60px;
+  margin: 0 2rem;
+}
